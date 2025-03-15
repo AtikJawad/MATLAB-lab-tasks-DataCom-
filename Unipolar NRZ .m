@@ -1,4 +1,6 @@
-%Unipolar NRZ
+%Unipolar NRZ 
+%All signal levels are on one side of the time axis - either above or below
+
 clear;
 clc;
 close all;
