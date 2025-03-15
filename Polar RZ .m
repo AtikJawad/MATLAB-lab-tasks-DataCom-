@@ -23,10 +23,10 @@ title('Binary wave')
 for j=1:n
   if(b(j)==1)
     x(j*100:(j*100)+50) = 1;
-    x((j*100)+51:(j+1)*100) = 0; %High to Low (1 to -0)
+    x((j*100)+50:(j+1)*100) = 0; %High to Low (1 to -0)
   else
     x(j*100:(j*100)+50) = -1;
-    x((j*100)+51:(j+1)*100) = 0; %Low to high (-1 to 0)
+    x((j*100)+50:(j+1)*100) = 0; %Low to high (-1 to 0)
   endif
 end
 
