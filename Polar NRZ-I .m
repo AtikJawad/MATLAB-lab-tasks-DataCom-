@@ -2,51 +2,50 @@
 % 0 বিট: লেভেল অপরিবর্তিত থাকে।
 % 1 বিট: লেভেল উল্টে যায় (যদি +1 থাকে → -1 হবে, -1 থাকলে → +1 হবে)।
 
-b = [0 1 0 1 1 1 0];
-n = length(b);
-t = 0:0.01:n; %  সময় ভেক্টর, প্রতিটি বিটের জন্য 0.01 ইন্টারভালে
+%Polar NRZ-I (Inverse)
+%Inversion (NRZ-I) - the change or lack of change in
+%polarity determines the value of a symbol.
+%E.g. a “1” symbol inverts the polarity a “0” does not.
 
+clc;
+close all;
+clear;
 
-b_p = ones(1, n);% প্রতিটি বিটের জন্য একটি '1' মানের অ্যারে তৈর
-                 %ones(m, n) → m x n আকারের একটি ম্যাট্রিক্স তৈরি করে, যেখানে সবগুলো উপাদানের মান 1 হয়।
+b=input('Binary data: ','s')-'0';
+n=length(b);
+t=0:0.01:n;
 
-
-for i = 1:n
-    if b(i) == 1
-        b_p(i) = -1;  % যেখানে 1 আছে, সেখানে -1 সেট করছে
-    end
+for i=1:n
+  bw(i*100:(i+1)*100)=b(i);
 end
+bw=bw(100:end);
 
-
-bw = zeros(1, length(t));
-for j = 1:n
-    bw(j*100:(j+1)*100) = b_p(j); % প্রতিটি বিটের জন্য ১০০ পয়েন্ট সেট করে
-end
-bw = bw(100:end); % প্রথম ১০০ পয়েন্ট বাদ দেয় (শুরু ঠিক করতে)
-
-
-subplot(2,1,1);
-plot(t, bw, 'LineWidth', 2);
+subplot(2,1,1)
+plot(t,bw, 'linewidth',2);
+axis([0 n 0 +1]);
 grid on;
-axis([0 n -2 +2])
-title('Binary Signal ');
+title('Binary wave')
 
-
-lastbit = 1; % সিগনালের শুরু লেভেল
-x = zeros(1, length(t)); %zeros(m, n) ফাংশনটি m x n আকারের একটি ম্যাট্রিক্স তৈরি করে, যেখানে সব মান শূন্য (0) থাকে।
-
-for i = 1:n
-    if b(i) == 1
-        lastbit = -lastbit; % বিট '1' হলে পোলারিটি পরিবর্তন করে
-    end
-    x(i*100:(i+1)*100) = lastbit;
+lastbit=1;
+for j=1:n
+  if(b(j)==1)
+   x(j*100:(j+1)*100)=-lastbit;
+   lastbit=-lastbit;
+  else
+   x(j*100:(j+1)*100)=lastbit;
+  endif
 end
-x = x(100:end);
 
+x=x(100:end);
 
-subplot(2,1,2);
-plot(t, x, 'LineWidth', 2);
-axis([0 n -2 +2])
-
+subplot(2,1,2)
+plot(t,x, 'linewidth',2);
+axis([0 n -2 +2]);
 grid on;
-title('Polar NRZ-I Signal');
+title('Polar NRZ-I Encoded')
+
+
+
+
+
+
