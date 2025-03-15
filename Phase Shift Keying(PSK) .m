@@ -8,7 +8,7 @@ close all;  %সব ওপেন ফিগার উইন্ডো বন্ধ
 b = [0 1 0 1 1 1 0];
 b(b == 0) = -1; % সব 0 কে -1 এ রূপান্তর
 
-%PSK-তে , বিটগুলোকে +1 এবং -1 আকারে উপস্থাপন করা হয় কারণ এতে Phase পরিবর্তন বোঝানো সহজ হয়।
+%PSK-তে (Phase Shift Keying), বিটগুলোকে +1 এবং -1 আকারে উপস্থাপন করা হয় কারণ এতে ফেজ পরিবর্তন বোঝানো সহজ হয়।
 
 n = length(b);
 t = 0:0.01:n; % সময়: 0 থেকে 7 পর্যন্ত, 0.01 ইন্টারভালে, ছোট ইন্টারভাল মানে আরও মসৃণ সিগন্যাল।
@@ -19,14 +19,8 @@ end
 bw = bw(100:end); % প্রথম অতিরিক্ত অংশ বাদ
 
 
-phase_shift = pi * (bw == -1); %যেখানে bw এর মান -1, সেখানে ফেজ শিফট π (180°)
-                               %যেখানে bw এর মান +1, ফেজ শিফট 0।
-
-
 carrier_signal = sin(2 * pi * t);  %sine wave carrier
-
-phase_shifted_signal = sin(2 * pi * t + phase_shift); %sin(2πt+π)=−sin(2πt)
-                  %যেখানে phase_shift = π, সেখানে সাইন ওয়েভের 180° উল্টানো ফর্ম।
+st=bw.*carrier_signal; %Modulated Signal
 
 subplot(3, 3, 1);
 plot(t, bw, 'LineWidth', 2) %প্লটের লাইনের পুরুত্ব 2 পয়েন্ট করে।
@@ -41,7 +35,8 @@ title('Carrier Signal (Sine Wave)')
 axis([0 n -2 +2])
 
 subplot(3, 3, 3);
-plot(t, phase_shifted_signal, 'LineWidth', 2)
+plot(t,st, 'LineWidth', 2)
 grid on;
+axis([0 n -2 +2])
 title('Phase Shifted Signal') %যেখানে বিট -1, সাইন ওয়েভ উল্টে গেছে (180° শিফট)।
-axis([0 n -2 +2])             %যেখানে বিট +1, সাইন ওয়েভ অপরিবর্তিত।
+                              %যেখানে বিট +1, সাইন ওয়েভ অপরিবর্তিত।
