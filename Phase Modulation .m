@@ -3,7 +3,7 @@ clear; %clears all variable from the workspace
 close all; %closes all open figures
 
 
-%Fs must be at least 2*Fc
+%Fm must be at least 2*Fc
 
 t=0:0.005:1; %Time vector with .01 intervals from 0 to 5
 
