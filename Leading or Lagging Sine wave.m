@@ -1,5 +1,5 @@
-
-t = 0:0.01:10;  %creates a time vector from 0 to 10 in steps of 0.01
+n=10;
+t = 0:0.01:n;  %creates a time vector from 0 to 10 in steps of 0.01
 
 
 y = sin(t);                
