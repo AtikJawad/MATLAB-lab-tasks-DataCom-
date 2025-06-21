@@ -19,7 +19,6 @@ fs_low = f_signal / 4;  % Too low sampling frequency
 t_low = 0:1/fs_low:1;
 y_low = sin(2 * pi * f_signal * t_low);
 
-% ----------- Plotting -----------
 
 % Original Signal
 subplot(3,1,1);
@@ -43,7 +42,7 @@ grid on;
 subplot(3,1,3);
 stem(t_low, y_low,'filled');
 hold on;
-plot(t_cont, y_cont, 'b--');
+plot(t_cont, y_cont);
 title('Sampling at Less than Nyquist Rate (¼ × f)');
 xlabel('Time (s)');
 ylabel('Amplitude');
