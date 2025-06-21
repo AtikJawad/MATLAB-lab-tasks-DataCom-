@@ -15,7 +15,7 @@ A = 1; % Amplitude of each sine wave
 num_harmonics = 5; % First five odd harmonics (1st, 3rd, 5th, 7th, 9th)
 
 % Store individual harmonics
-square_wave = zeros(1, length(t));
+square_wave = 0;
 
 % Generate harmonics and add to square_wave
 for k = 1:num_harmonics
