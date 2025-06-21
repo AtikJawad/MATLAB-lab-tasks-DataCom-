@@ -29,7 +29,7 @@ subplot(3,3,2) %৩x৩ গ্রিডের 2 নম্বর ঘরে প্
 plot(t,sint) %সাইন ওয়েভ (ক্যারিয়ার) প্লট।
 grid on;
 axis([0 n -2 2])
-title("Career Sine Wave")
+title("Carrier Sine Wave")
 
 subplot(3,3,3)
 plot(t,st) %৩ নম্বর ঘরে মডুলেটেড (ASK) সিগনাল প্লট করে।
