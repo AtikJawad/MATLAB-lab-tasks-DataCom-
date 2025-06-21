@@ -19,6 +19,7 @@ c=sin(2*pi*fc*t);
 %Phase Modulated signal
 PhaseDev= pi/2; %Defines the phase deviation
 Pm = cos(2*pi*fc*t + PhaseDev*m);
+%Pm = pmmod(c,fc,fm,phasedev); when function is used 
 
 
 
