@@ -1,4 +1,4 @@
-%Frequency shift keying
+%Frequency shift keying (Coherent)
 clear;
 clc;
 close all;
