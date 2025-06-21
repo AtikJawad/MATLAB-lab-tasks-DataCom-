@@ -1,6 +1,6 @@
 %Manchester uses a polarity inversion in the middle of each bit period 
-%   o Low to high represents '1'
-%   o High to low represents '0'
+%   Low to high represents '1'
+%   High to low represents '0'
 clc;
 close all;
 clear;
