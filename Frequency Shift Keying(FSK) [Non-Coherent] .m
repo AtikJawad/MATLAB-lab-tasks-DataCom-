@@ -1,3 +1,7 @@
+% In a non-coherent FSK scheme, when we change from 
+% one frequency to the other, we do not adhere to the 
+% current phase of the signal. 
+
 clc;
 close all;
 clear;
