@@ -1,4 +1,6 @@
-%Frequency shift keying (Coherent)
+% In coherent FSK, the switch from one frequency signal 
+% to the other only occurs at the same phase in the signal.
+
 clear;
 clc;
 close all;
